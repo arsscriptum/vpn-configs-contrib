@@ -10,6 +10,6 @@ services:
       driver: json-file
       options:
         max-size: 10m
-    image: haugene/transmission-openvpn:dev
+    image: arsscriptum/transmission-openvpn:dev
     command: python3 -u /app/provider_test.py
 
