@@ -5,20 +5,44 @@ import time
 from datetime import datetime
 from pathlib import Path
 from tempfile import mkstemp
+import os
+from dotenv import load_dotenv
 
+# Load environment variables from the .env file
+load_dotenv()
+
+# Retrieve VPN username and password from environment variables
+vpn_username = os.getenv("VPN_USERNAME")
+vpn_password = os.getenv("VPN_PASSWORD")
+
+# Ensure the username and password are loaded correctly
+if not vpn_username or not vpn_password:
+    raise ValueError("VPN username and/or password not found in the .env file.")
+
+# Define the directory path
+temp_test_dir = "/test_tmp"
+
+# Create the directory
+os.makedirs(temp_test_dir, exist_ok=True)
+
+# Path to the authentication file
+auth_file_path = temp_test_dir + '/credentials.txt'
+
+# Create a dummy auth file with the loaded credentials
+with open(auth_file_path, "w") as auth_file:
+    auth_file.writelines([f"{vpn_username}\n", f"{vpn_password}\n"])
+print(f"Created auth file at {auth_file_path} with username and password.")
+
+# Base directory for OpenVPN config files
 base_dir = "/etc/openvpn"
 openvpn_config_paths = Path(base_dir).rglob("*.ovpn")
 number_of_configs = len(list(openvpn_config_paths))
 
-_, auth_file_path = mkstemp()
-with open(auth_file_path, "w") as auth_file:
-    auth_file.writelines(["username\n", "password\n"])
-print(f"Crated dummy auth file at {auth_file_path}")
-
-results = {}
-results["providers"] = {}
-
+# Initialize the results dictionary
+results = {"providers": {}}
 count = 0
+
+# Loop through each OpenVPN config file
 for config_path in Path(base_dir).rglob("*.ovpn"):
     provider = config_path.relative_to(base_dir).parts[0]
     config = config_path.relative_to(Path(base_dir).joinpath(provider))
@@ -72,33 +96,37 @@ for config_path in Path(base_dir).rglob("*.ovpn"):
 
     stop = time.perf_counter()
 
+    # Store results
     results["providers"][provider][str(config)] = {}
     results["providers"][provider][str(config)]["responded"] = server_responded
     results["providers"][provider][str(config)]["auth_failed"] = auth_failed
     results["providers"][provider][str(config)]["retry_max"] = retry_max
     results["providers"][provider][str(config)]["resolve_error"] = resolve_error
     results["providers"][provider][str(config)]["duration"] = round(stop - start, 2)
-    count = count + 1
+    count += 1
 
-# Collect results
+# Collect results summary
 results["summary"] = {}
 
 for provider in results["providers"]:
-    sucessful_connects = 0
+    successful_connects = 0
     provider_duration = 0.0
     for config in results["providers"][provider]:
-        provider_duration = (
-            provider_duration + results["providers"][provider][config]["duration"]
-        )
+        provider_duration += results["providers"][provider][config]["duration"]
         if results["providers"][provider][config]["responded"]:
-            sucessful_connects = sucessful_connects + 1
+            successful_connects += 1
     total_configs = len(results["providers"][provider].keys())
-    results["summary"][provider] = {}
-    results["summary"][provider]["total"] = total_configs
-    results["summary"][provider]["success"] = sucessful_connects
-    results["summary"][provider]["duration"] = provider_duration
-    results["summary"][provider]["rate"] = round(sucessful_connects / total_configs, 2)
+    results["summary"][provider] = {
+        "total": total_configs,
+        "success": successful_connects,
+        "duration": provider_duration,
+        "rate": round(successful_connects / total_configs, 2),
+    }
 
+# Save results to a JSON file with a timestamp
 timestamp = datetime.now().strftime("%d%m%Y%H%M")
-with open(f"/tmp/data/result{timestamp}.json", "w") as outfile:
+result_file_path = f"/tmp/data/result{timestamp}.json"
+with open(result_file_path, "w") as outfile:
     json.dump(results, outfile, indent=4, sort_keys=True)
+
+print(f"Results saved to {result_file_path}")
