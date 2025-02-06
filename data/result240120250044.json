@@ -1,0 +1,392 @@
+{
+    "providers": {
+        "airvpn": {},
+        "anonine": {},
+        "anonvpn": {},
+        "blackvpn": {},
+        "btguard": {},
+        "bulletvpn": {},
+        "cryptostorm": {},
+        "expressvpn": {},
+        "expressvpn2": {
+            "Japan_-_Tokyo.ovpn": {
+                "auth_failed": null,
+                "duration": 10.02,
+                "resolve_error": null,
+                "responded": false,
+                "retry_max": null
+            },
+            "USA_-_Phoenix.ovpn": {
+                "auth_failed": null,
+                "duration": 10.02,
+                "resolve_error": null,
+                "responded": false,
+                "retry_max": null
+            }
+        },
+        "fastestvpn": {},
+        "freedomip": {},
+        "freevpn": {},
+        "froot": {},
+        "frostvpn": {},
+        "getflix": {},
+        "ghostpath": {},
+        "giganews": {},
+        "goosevpn": {},
+        "hideme": {},
+        "hotspotshield": {},
+        "integrityvpn": {},
+        "ironsocket": {},
+        "ivacy": {},
+        "ivpn": {},
+        "mullvad": {},
+        "octanevpn": {},
+        "ovpn": {},
+        "privado": {},
+        "privatevpn": {},
+        "protonvpn": {},
+        "proxpn": {},
+        "purevpn": {},
+        "ra4w": {},
+        "safervpn": {},
+        "slickvpn": {},
+        "slickvpncore": {},
+        "smartdnsproxy": {},
+        "smartvpn": {},
+        "surfshark": {},
+        "tiger": {},
+        "torguard": {},
+        "trustzone": {},
+        "tunnelbear": {},
+        "vpnac": {},
+        "vpnarea": {},
+        "vpnbook": {},
+        "vpnfacile": {},
+        "vpnht": {},
+        "vpntunnel": {},
+        "vpnunlimited": {},
+        "wevpn": {},
+        "windscribe": {},
+        "zoogvpn": {}
+    },
+    "summary": {
+        "airvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "anonine": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "anonvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "blackvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "btguard": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "bulletvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "cryptostorm": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "expressvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "expressvpn2": {
+            "duration": 20.04,
+            "rate": 0.0,
+            "success": 0,
+            "total": 2
+        },
+        "fastestvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "freedomip": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "freevpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "froot": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "frostvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "getflix": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "ghostpath": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "giganews": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "goosevpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "hideme": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "hotspotshield": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "integrityvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "ironsocket": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "ivacy": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "ivpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "mullvad": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "octanevpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "ovpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "privado": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "privatevpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "protonvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "proxpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "purevpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "ra4w": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "safervpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "slickvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "slickvpncore": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "smartdnsproxy": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "smartvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "surfshark": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "tiger": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "torguard": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "trustzone": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "tunnelbear": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "vpnac": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "vpnarea": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "vpnbook": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "vpnfacile": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "vpnht": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "vpntunnel": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "vpnunlimited": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "wevpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "windscribe": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        },
+        "zoogvpn": {
+            "duration": 0.0,
+            "rate": 0,
+            "success": 0,
+            "total": 0
+        }
+    }
+}

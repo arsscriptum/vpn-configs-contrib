@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#+--------------------------------------------------------------------------------+
+#+--------------------------------------------------------------------------------+ 
 #|                                                                                |
 #|   setup-venv.sh                                                                |
 #|                                                                                |
-#+--------------------------------------------------------------------------------+
+#+--------------------------------------------------------------------------------+ 
 #|   Guillaume Plante <codegp@icloud.com>                                         |
 #|   Code licensed under the GNU GPL v3.0. See the LICENSE file for details.      |
 #+--------------------------------------------------------------------------------+
@@ -17,11 +17,37 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 GREEN='\033[0;32m'
 
-# Determine the ROOT_DIRECTORY based on the script's location
-SCRIPT_DIR=$(dirname "$(realpath "$0")")
-ROOT_DIRECTORY=$(realpath "$SCRIPT_DIR/..")
+SCRIPT_PATH=$(realpath "$BASH_SOURCE")
+SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
 
-ENV_FILE="$ROOT_DIRECTORY/.env"
+
+
+log_info() {
+    echo -e "${CYAN}[venv] $1${NC}"
+}
+
+log_warning() {
+    echo -e "${YELLOW}[venv] $1${NC}"
+}
+log_error() {
+    echo -e "${RED}[venv] $1${NC}"
+}
+
+# Determine the ROOT_DIRECTORY based on the argument or the script's location
+if [ -n "$1" ]; then
+    ROOT_DIRECTORY="$1"  # Use the argument as ROOT_DIRECTORY
+    if [ -d "$ROOT_DIRECTORY" ]; then
+        echo "ROOT_DIRECTORY set to $ROOT_DIRECTORY"
+    else
+        echo "Error ROOT_DIRECTORY $ROOT_DIRECTORY doesnt exists"
+        exit 1
+    fi
+else
+    tmp_root=$(pushd "$SCRIPT_DIR/.." | awk '{print $1}')
+    ROOT_DIRECTORY=$(eval echo "$tmp_root")
+fi
+
+
 
 # Define the virtual environment path
 VENV_PATH="$ROOT_DIRECTORY/venv"
@@ -30,14 +56,12 @@ ACTIVATE_FILE="$VENV_PATH/bin/activate"
 # Define the log file
 LOG_FILE="$ROOT_DIRECTORY/logs/install-venv.log"
 
-
 mkdir -p "$ROOT_DIRECTORY/logs"
 
 log_info() {
     echo "[$(date)] $1" >> "$LOG_FILE"
     echo -e "${RED}[install]${NC} ${YELLOW}$1${NC}"
 }
-
 
 # Function to setup Python virtual environment
 setup_virtualenv() {

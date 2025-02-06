@@ -2,17 +2,27 @@ version: '3.3'
 
 services:
   vpn-config-tester:
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
     container_name: configtest
     volumes:
+      - .:/app
       - ./data/:/tmp/data
+      - ./scripts/:/scripts
       - ./tmp/:/test_tmp
       - ./openvpn:/etc/openvpn:ro
       - ./provider_test.py:/app/provider_test.py:ro
+    devices:
+      - /dev/net/tun:/dev/net/tun
     logging:
       driver: json-file
       options:
         max-size: 10m
     image: arsscriptum/transmission-openvpn:latest
     command: |
-      sh -c "pip install python-dotenv && python3 -u /app/provider_test.py"
+      sh -c "python3 -u /app/provider_test.py"
 
